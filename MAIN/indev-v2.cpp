@@ -4,6 +4,7 @@
 #include <chrono>
 #include <string>
 #include <thread>
+#include <cmath>
 using namespace std;
 // required modules
 
@@ -15,6 +16,10 @@ string choice; // allows the user to select what mathematics mode they want
 double inchoice; // first number
 double inchoice2; // second number
 double total; // displays the total of inchoice & inchoice2
+double base ;  // for POWER number 1
+double exponent; // for POWER number 2
+double part; // first number
+double whole; // second number
 
 int main() {
 		cout << "\nText Interface Calculator, TIC\n";
@@ -24,7 +29,7 @@ int main() {
 		sleep(1); cout << "Reconstruction of Py Calculator\n\n";
 	
 	while (true) {
-		cout << "\nOPTIONS: ADDITION [+], MULTIPLICATIONS [*], SUBTRACTION [-], DIVISION [/]\n";
+		cout << "\nOPTIONS: EXIT [..], ADDITION [+], MULTIPLICATIONS [*], SUBTRACTION [-], DIVISION [/], REMAINDER [|], PERCENT OF [%]\n";
 		cout << "SELECT: ";
 		cin >> choice;
 		
@@ -72,6 +77,36 @@ int main() {
 			total = inchoice / inchoice2;
 			
 			cout << "TOTAL: " << total << "\n";
+		}
+		
+		if (choice == "^") {
+			cout << "\nBASE: ";
+			cin >> base;
+			cout << "EXPONENT: ";
+			cin >> exponent;
+			total = pow(base, exponent);
+			
+			cout << "TOTAL: " << total << "\n";
+		}
+		
+		if (choice == "|") {
+			cout << "\nNUMBER: ";
+			cin >> inchoice;
+			cout << "SECOND NUMBER: ";
+			cin >> inchoice2;
+			total = fmod(inchoice, inchoice2);
+			
+			cout << "TOTAL: " << total << "\n";
+		}
+		
+		if (choice == "%") {
+			cout << "\nPART: ";
+			cin >> part;
+			cout << "WHOLE: ";
+			cin >> whole;
+			total = (part / whole) * 100;
+			
+			cout << part << "% IS " << total << "% OF " << whole << "\n";
 		}
 	}
 	
