@@ -8,6 +8,7 @@
 using namespace std;
 // required modules
 
+
 void sleep(double seconds) {
 	this_thread::sleep_for(chrono::milliseconds((int)(seconds * 1000)));
 }
@@ -18,8 +19,11 @@ double inchoice2; // second number
 double total; // displays the total of inchoice & inchoice2
 double base ;  // for POWER number 1
 double exponent; // for POWER number 2
-double part; // first number
-double whole; // second number
+double part; // first number for PERCENT OF
+double whole; // second number for PERCENT OF & first number for PERCENT SOMETHING IS.
+double percent; // second number for PERCENT SOMETHING IS
+//non-area-specific variables
+
 
 int main() {
 		cout << "\nText Interface Calculator, TIC\n";
@@ -29,9 +33,10 @@ int main() {
 		sleep(1); cout << "Reconstruction of Py Calculator\n\n";
 	
 	while (true) {
-		cout << "\nOPTIONS: EXIT [..], ADDITION [+], MULTIPLICATIONS [*], SUBTRACTION [-], DIVISION [/], REMAINDER [|], PERCENT OF [%]\n";
+		cout << "\nOPTIONS: EXIT [..], ADDITION [+], MULTIPLICATIONS [*], SUBTRACTION [-], DIVISION [/], REMAINDER [|], PERCENT OF [%], PERCENT SOMETHING IS [>].\n";
 		cout << "SELECT: ";
 		cin >> choice;
+		
 		
 		if (choice == "..") {
 			sleep(2); cout << "\nEXITING...\n";
@@ -49,6 +54,7 @@ int main() {
 			cout << "TOTAL: " << total << "\n";
 		}
 		
+		
 		if (choice == "*") {
 			cout << "\nNUMBER: ";
 			cin >> inchoice;
@@ -58,6 +64,7 @@ int main() {
 			
 			cout << "TOTAL: " << total << "\n";
 		}
+		
 		
 		if (choice == "-") {
 			cout << "\nNUMBER: ";
@@ -69,6 +76,7 @@ int main() {
 			cout << "TOTAL: " << total << "\n";
 		}
 		
+		
 		if (choice == "/") {
 			cout << "\nNUMBER: ";
 			cin >> inchoice;
@@ -78,6 +86,7 @@ int main() {
 			
 			cout << "TOTAL: " << total << "\n";
 		}
+		
 		
 		if (choice == "^") {
 			cout << "\nBASE: ";
@@ -89,6 +98,7 @@ int main() {
 			cout << "TOTAL: " << total << "\n";
 		}
 		
+		
 		if (choice == "|") {
 			cout << "\nNUMBER: ";
 			cin >> inchoice;
@@ -99,6 +109,7 @@ int main() {
 			cout << "TOTAL: " << total << "\n";
 		}
 		
+		
 		if (choice == "%") {
 			cout << "\nPART: ";
 			cin >> part;
@@ -107,6 +118,17 @@ int main() {
 			total = (part / whole) * 100;
 			
 			cout << part << "% IS " << total << "% OF " << whole << "\n";
+		}
+		
+		
+		if (choice == ">") {
+			cout << "\nWHOLE: ";
+			cin >> whole; 
+			cout << "PERCENTAGE: ";
+			cin >> percent;
+			total = (whole * percent) / 100.0;
+			
+			cout << "TOTAL: " << total << " IS " << percent << "% OF " << whole << "\n";
 		}
 	}
 	
